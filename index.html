@@ -49,7 +49,7 @@
 		<script src="UpdatableTexture.js"></script>
 
 		<script>
-
+			var randomrange = window.prompt('enter random range', 1000);
 			var mouseX = 0, mouseY = 0,
 
 			windowHalfX = window.innerWidth / 2,
@@ -83,8 +83,8 @@
 				texture.minFilter = texture.magFilter = THREE.NearestFilter;
 				texture.generateMipmaps = false;
 
-				var width = 512;
-				var height = 512;
+				var width = 4096;
+				var height = 4096;
 
 				var plane = new THREE.Mesh(
 					new THREE.PlaneBufferGeometry( width, height ),
@@ -97,7 +97,7 @@
 
 				renderer.render( scene, camera );
 
-				var s = 32;
+				var s = 256;
 				texture.setSize( width, height );
 
 				function fade() {
@@ -137,7 +137,7 @@
 									texture.update( canvas, x, y );
 
 								}
-								setTimeout( generate, 500 * Math.random() );
+								setTimeout( generate, randomrange * Math.random() );
 
 							})( x, y );
 
