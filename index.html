@@ -129,8 +129,8 @@
 			}
 			
 			function updateTex(){
-				let x = Math.floor(Math.random() * window.texsize/window.tilesize);
-				let y = Math.floor(Math.random() * window.texsize/window.tilesize);
+				let x = Math.floor(Math.random() * window.texsize/window.tilesize) * window.tilesize;
+				let y = Math.floor(Math.random() * window.texsize/window.tilesize) * window.tilesize;
 				var color = `rgb(${~~(Math.random()*255)},${~~(Math.random()*255)},${~~(Math.random()*255)})`;
 
 				(function( x, y ) {
