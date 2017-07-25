@@ -63,6 +63,8 @@
 			function init() {
 				window.canvas = document.createElement( 'canvas' );
 				canvas.width = canvas.height = window.tilesize;
+				window.ctx = window.canvas.getContext( '2d' );
+				
 				var container = document.createElement( 'div' );
 				document.body.appendChild( container );
 
@@ -137,7 +139,7 @@
 				(function( x, y ) {
 
 					let s = window.tilesize;
-					var ctx = window.canvas.getContext( '2d' );
+					let ctx = window.ctx;
 
 					ctx.fillStyle = color;
 					ctx.fillRect( 0, 0, s, s );
