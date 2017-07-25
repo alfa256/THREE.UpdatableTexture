@@ -109,6 +109,7 @@
 				texture.setSize( width, height );
 
 				window.addEventListener( 'resize', onWindowResize, false );
+				window.requestIdleCallback(updateTex);
 
 			}
 
@@ -162,12 +163,14 @@
 
 					window.texture.update( window.canvas, x, y );
 				})( x, y );
+				window.requestIdleCallback(updateTex);
 			}
 			
 			function render() {
 
 				controls.update();
-				updateTex();
+				
+				
 				renderer.render( scene, camera );
 
 			}
