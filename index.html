@@ -61,7 +61,8 @@
 			animate();
 
 			function init() {
-
+				window.canvas = document.createElement( 'canvas' );
+				canvas.width = canvas.height = window.tilesize;
 				var container = document.createElement( 'div' );
 				document.body.appendChild( container );
 
@@ -137,10 +138,9 @@
 
 								function generate() {
 
-									var canvas = document.createElement( 'canvas' );
+									
 									let s = window.tilesize;
-									canvas.width = canvas.height = s;
-									var ctx = canvas.getContext( '2d' );
+									var ctx = window.canvas.getContext( '2d' );
 
 									ctx.fillStyle = color;
 									ctx.fillRect( 0, 0, s, s );
@@ -161,7 +161,7 @@
 									ctx.lineTo( 0, s );
 									ctx.stroke();
 
-									window.texture.update( canvas, x, y );
+									window.texture.update( window.canvas, x, y );
 
 								}
 							})( x, y );
